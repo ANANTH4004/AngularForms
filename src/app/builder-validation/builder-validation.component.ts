@@ -1,5 +1,5 @@
 import { Component , OnInit } from '@angular/core';
-import {FormGroup , FormBuilder , Validator , ValidationErrors} from '@angular/forms'
+import {FormGroup , FormBuilder  , ValidationErrors, Validators} from '@angular/forms'
 @Component({
   selector: 'app-builder-validation',
   templateUrl: './builder-validation.component.html',
@@ -13,10 +13,10 @@ export class BuilderValidationComponent implements OnInit {
   }
   ngOnInit() {
    this.registerForm = this.fb.group({
-    name : '',
-    email : '',
-    age : '',
-    password : ''
+    name : ['' , Validators.required],
+    email : ['',[Validators.required , Validators.pattern("^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$")]],
+    age : ['',[Validators.required , Validators.min(18),Validators.max(60)]],
+    password : ['',[Validators.required , Validators.minLength(8)]]
    })
   }
   onSubmit(form: FormGroup) {
