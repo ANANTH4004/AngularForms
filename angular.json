@@ -64,7 +64,8 @@
               "browserTarget": "FormsValidation:build:production"
             },
             "development": {
-              "browserTarget": "FormsValidation:build:development"
+              "browserTarget": "FormsValidation:build:development",
+              "proxyConfig": "src/proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"
